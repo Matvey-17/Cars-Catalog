@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<h1>Список автомобилей</h1>
+
+{% for car in cars %}
+<div class="car">
+    <p class="car-title"><a href="{% url 'product:car' car.id %}" style="text-decoration: none;">{{ car.make }} {{ car.model }}</a></p>
+    <p><strong>Год выпуска:</strong> {{ car.year }}</p>
+    <p><strong>Описание:</strong> {{ car.description }}</p>
+    <a href="{% url 'product:add_comment' car.id %}" style="text-decoration: none;">Добавить комментарий</a>
+</div>
+{% empty %}
+<p>Автомобили не найдены.</p>
+{% endfor %}
+<a href="{% url 'product:add_car' %}" style="text-decoration: none; font-size: 24px;">Добавить новый автомобиль</a>
+{% endblock %}
+

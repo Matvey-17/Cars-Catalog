@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Редактировать запись</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Изменить</button>
+    <a href="{% url 'product:delete' car_id %}" style="text-decoration: none;">Удалить</a>
+</form>
+{% endblock %}

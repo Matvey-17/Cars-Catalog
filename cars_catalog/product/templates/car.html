@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}{{ car }}{% endblock %}
+
+{% block content %}
+<h1>{{ car }}</h1>
+
+
+<div class="car">
+    <p class="car-title">{{ car.make }} {{ car.model }}</p>
+    <p><strong>Год выпуска:</strong> {{ car.year }}</p>
+    <p><strong>Описание:</strong> {{ car.description }}</p>
+    {% if request.user == car.owner %}
+    <a href="{% url 'product:edit_car' car.id %}" style="text-decoration: none;">Редактировать запись</a>
+    {% endif %}
+</div>
+
+<h2>Комментарии</h2>
+{% if comments %}
+<ul>
+    {% for comment in comments %}
+    <li>
+        <p><strong>{{ comment.author.username }}:</strong> {{ comment.content }}</p>
+        <p><em>Дата создания: {{ comment.created_at }}</em></p>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Комментариев нет.</p>
+{% endif %}
+{% endblock %}
