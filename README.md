@@ -33,7 +33,7 @@
 1. Клонируйте репозиторий на локальную машину:
 
    ```bash
-   git clone https://github.com/your-repo-url/car-management-app.git
+   git clone https://github.com/Matvey-17/Cars-Catalog.git
    cd cars_catalog
    ```
 2. Создайте и активируйте виртуальное окружение:
